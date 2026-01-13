@@ -22,24 +22,21 @@
             --glass-border: rgba(255, 255, 255, 0);
         }
 
-        /* LOGO GIGANTE NO BACKGROUND COM COR ORIGINAL */
+        /* LOGO GIGANTE NO BACKGROUND */
         .bg-logo-overlay {
             position: fixed;
-            top: 50;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 15vw;
+            width: 70vw;
             /* Tamanho da logo no fundo */
             height: center;
-            opacity: 0.8;
-            /* Ajustado para aparecer a cor sem ofuscar o texto */
+            opacity: 0.09;
+            /* Suavidade para estética premium */
             z-index: -1;
             pointer-events: none;
-            display: block;
-            /* Removido o grayscale para manter a cor original */
-            filter: brightness(1.1);
+            filter: grayscale(100%) brightness(1.2);
         }
-
 
         * {
             margin: 0;
@@ -98,7 +95,7 @@
 
         /* LOGO GIGANTE NO BACKGROUND COM COR ORIGINAL */
         .bg-logo-overlay {
-            position: fixed;
+            position: flex;
             top: 50;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -109,6 +106,7 @@
             /* Ajustado para aparecer a cor sem ofuscar o texto */
             z-index: -1;
             pointer-events: none;
+            display: block;
             /* Removido o grayscale para manter a cor original */
             filter: brightness(1.1);
         }
@@ -144,6 +142,58 @@
         nav a:hover {
             color: var(--accent-color);
         }
+
+        /* Botão Hambúrguer */
+.menu-toggle {
+    display: none; /* Escondido no computador */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: 0.3s;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Aparece no celular */
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido fora da tela */
+        width: 70%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0; /* Entra na tela quando clicado */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem;
+    }
+}
 
         .hero {
             height: 70vh;
@@ -386,6 +436,11 @@
                 <link><a href="#contato">Contato</a></link>
             </ul>
         </nav>
+        <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
     </header>
 
         <section id="sobre" class="section"></section>
@@ -486,7 +541,4 @@
     </script>
 </body>
 
-
 </html>
-
-
