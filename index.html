@@ -194,6 +194,28 @@
     }
 }
 
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Começa escondido na direita */
+        width: 100%;  /* Ocupa a tela toda no celular */
+        height: 100vh;
+        background: #050505; /* Fundo sólido para ver se está abrindo */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    /* ESSA PARTE É O QUE FAZ APARECER */
+    .nav-menu.active {
+        right: 0 !important; 
+    }
+}
+
         .hero {
             height: 70vh;
             display: flex;
@@ -517,6 +539,21 @@
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+
+        const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.nav-menu');
+
+// Abre e fecha o menu ao clicar nas 3 linhas
+menu.addEventListener('click', function() {
+    menuLinks.classList.toggle('active');
+});
+
+// Fecha o menu automaticamente ao clicar em um link (Sobre, Projetos, etc)
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuLinks.classList.remove('active');
+    });
+});
 
         function type() {
             const currentPhrase = phrases[phraseIndex];
