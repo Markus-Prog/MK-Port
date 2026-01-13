@@ -30,7 +30,7 @@
             transform: translate(-50%, -50%);
             width: 70vw;
             /* Tamanho da logo no fundo */
-            height: center;
+            height: auto;
             opacity: 0.09;
             /* Suavidade para estética premium */
             z-index: -1;
@@ -106,13 +106,12 @@
             /* Ajustado para aparecer a cor sem ofuscar o texto */
             z-index: -1;
             pointer-events: none;
-            display: block;
             /* Removido o grayscale para manter a cor original */
             filter: brightness(1.1);
         }
 
         .logo-container {
-            display: fixed;
+            display: flex;
             align-items: center;
             gap: 12px;
         }
@@ -144,58 +143,6 @@
         }
 
         /* Botão Hambúrguer */
-.menu-toggle {
-    display: none; /* Escondido no computador */
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--accent-color);
-    transition: 0.3s;
-}
-
-/* Ajustes para Celular */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Aparece no celular */
-        z-index: 1001;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Escondido fora da tela */
-        width: 70%;
-        height: 100vh;
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(15px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.5s;
-        z-index: 1000;
-    }
-
-    .nav-menu.active {
-        right: 0; /* Entra na tela quando clicado */
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .nav-menu a {
-        font-size: 1.5rem;
-    }
-}
-
-/* Botão Hambúrguer */
 .menu-toggle {
     display: none; /* Escondido no computador */
     flex-direction: column;
@@ -471,29 +418,31 @@
 </head>
 
 <body>
-    <img src="img/1767908951974.png" alt="Background Logo MK" class="bg-logo-overlay">
+    <img src="IMG/1767908951974.png" alt="Background Logo MK" class="bg-logo-overlay">
 
     <div class="glow-orb"></div>
 
-    <header>
-        <div class="logo-container">
-            <img src="img/1767908951974.png" alt="Logo Markus Anttony" class="logo-img">
-            <div class="logo-text">Markus <span>Anttony</span></div>
-        </div>
-        <nav>
-            <ul>
-                <link><a href="#sobre">Sobre</a></link>
-                <link><a href="#servicos">Serviços</a></link>
-                <link><a href="#portfolio">Projetos</a></link>
-                <link><a href="#contato">Contato</a></link>
-            </ul>
-        </nav>
-        <div class="menu-toggle" id="mobile-menu">
+<header>
+    <div class="logo-container">
+        <img src="IMG/1767908951974.png" alt="Logo" class="logo-img">
+        <div class="logo-text">Markus <span>Anttony</span></div>
+    </div>
+
+    <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
-    </header>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
         <section id="sobre" class="section"></section>
 
